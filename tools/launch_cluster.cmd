@@ -26,7 +26,15 @@ if "%RESX%"=="" set RESX=1280
 set RESY=%2
 if "%RESY%"=="" set RESY=720
 
-%UE_CMD% %PROJ% %MAP% -game -dc_cluster -dc_cfg=%CFG% -dc_node=%NODE% ^
+REM CRITICAL: -dc_dev_mono picks the monoscopic render device. Without ANY
+REM -dc_dev_* flag, FDisplayClusterRenderManager::StartSession logs
+REM "No rendering device specified! No stereo device created" and
+REM GEngine->StereoRenderingDevice stays null, so UDisplayClusterViewport
+REM Client::Draw falls through to the default UGameViewportClient::Draw
+REM (= the controllable player viewport, not our 4-viewport cluster output).
+
+%UE_CMD% %PROJ% %MAP% -game -dc_cluster -dc_dev_mono ^
+    -dc_cfg=%CFG% -dc_node=%NODE% ^
     -windowed -resx=%RESX% -resy=%RESY% ^
     -log -NoSplash ^
     -AbsLog=D:\Claude\UE5\PolyArcStereoND\Saved\Logs\cluster_launch.log
