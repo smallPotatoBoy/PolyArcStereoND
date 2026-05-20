@@ -78,6 +78,15 @@ def spawn_root_actor(blueprint_path):
     if actor:
         actor.set_actor_label("PolyArcStereoRig_ND")
         unreal.log(f"Spawned: {actor.get_actor_label()} at {spawn_loc}")
+
+        # 默认 PreviewNodeId = "None"，预览屏只显示灰白占位；强制设为 node_main
+        # 让 4 块 sub-screen 立刻渲染 off-axis 投影
+        try:
+            actor.set_editor_property("PreviewNodeId", "node_main")
+            actor.set_editor_property("bPreviewEnablePostProcess", True)
+            unreal.log("Preview enabled: PreviewNodeId=node_main, PostProcess=true")
+        except Exception as e:
+            unreal.log_warning(f"Failed to set preview properties (may need manual setup in Details > Preview tab): {e}")
     else:
         unreal.log_error("spawn_actor_from_class returned None")
     return actor
