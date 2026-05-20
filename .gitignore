@@ -1,0 +1,30 @@
+# UE5 generated
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+.vs/
+*.sln
+*.suo
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Plugin junctions (excluded; recreate on clone)
+# Plugins/PolyArcStereoFX/   ← our own plugin, KEEP it tracked
+
+# Build outputs
+*.pdb
+*.exp
+
+# Saved diagnostics
+Saved/PolyArcStereo*.png
