@@ -1,0 +1,139 @@
+{
+	"nDisplay": {
+		"Description": "PolyArcStereo curved LED — 4 sub-screen folded arc (L=6720mm, R=12052.62mm, θ=31.948°), 3612×2236 px, IPD=63mm, d_mid=2965mm. Sweet spot at root origin, looking +X. Stereo / M4 / M5 added in follow-up commits.",
+		"Version": "5.00",
+		"AssetPath": "",
+		"Misc": {
+			"bFollowLocalPlayerCamera": false,
+			"bExitOnEsc": true,
+			"bOverrideViewportsFromExternalConfig": false,
+			"bOverrideTransformsFromExternalConfig": false
+		},
+		"Scene": {
+			"Xforms": {},
+			"Cameras": {
+				"SweetSpot": {
+					"ParentId": "",
+					"Location": { "X": 0.0, "Y": 0.0, "Z": 0.0 },
+					"Rotation": { "Pitch": 0.0, "Yaw": 0.0, "Roll": 0.0 },
+					"InterpupillaryDistance": 6.3,
+					"SwapEyes": false,
+					"StereoOffset": "none"
+				}
+			},
+			"Screens": {
+				"Sub0": {
+					"ParentId": "",
+					"Location": { "X": 268.48, "Y": 249.60, "Z": 0.0 },
+					"Rotation": { "Pitch": 0.0, "Yaw": -168.00, "Roll": 0.0 },
+					"Size": { "Width": 167.97, "Height": 416.0 }
+				},
+				"Sub1": {
+					"ParentId": "",
+					"Location": { "X": 291.74, "Y": 83.75, "Z": 0.0 },
+					"Rotation": { "Pitch": 0.0, "Yaw": -176.00, "Roll": 0.0 },
+					"Size": { "Width": 167.97, "Height": 416.0 }
+				},
+				"Sub2": {
+					"ParentId": "",
+					"Location": { "X": 291.74, "Y": -83.75, "Z": 0.0 },
+					"Rotation": { "Pitch": 0.0, "Yaw": 176.00, "Roll": 0.0 },
+					"Size": { "Width": 167.97, "Height": 416.0 }
+				},
+				"Sub3": {
+					"ParentId": "",
+					"Location": { "X": 268.48, "Y": -249.60, "Z": 0.0 },
+					"Rotation": { "Pitch": 0.0, "Yaw": 168.00, "Roll": 0.0 },
+					"Size": { "Width": 167.97, "Height": 416.0 }
+				}
+			}
+		},
+		"Cluster": {
+			"PrimaryNode": {
+				"Id": "node_main",
+				"Ports": {
+					"ClusterSync": 41001,
+					"ClusterEventsJson": 41003,
+					"ClusterEventsBinary": 41004
+				}
+			},
+			"Sync": {
+				"RenderSyncPolicy": { "Type": "none", "Parameters": {} },
+				"InputSyncPolicy": { "Type": "replicatePrimary", "Parameters": {} }
+			},
+			"Network": {
+				"ConnectRetriesAmount": "10",
+				"ConnectRetryDelay": "1000",
+				"GameStartBarrierTimeout": "30000",
+				"FrameStartBarrierTimeout": "30000",
+				"FrameEndBarrierTimeout": "30000",
+				"RenderSyncBarrierTimeout": "30000"
+			},
+			"Failover": {
+				"FailoverPolicy": "Disabled"
+			},
+			"Nodes": {
+				"node_main": {
+					"Host": "127.0.0.1",
+					"Sound": true,
+					"FullScreen": false,
+					"RenderHeadless": false,
+					"GraphicsAdapter": -1,
+					"TextureShare": false,
+					"Window": { "X": 0, "Y": 0, "W": 3612, "H": 2236 },
+					"Postprocess": {},
+					"Viewports": {
+						"vp_sub0": {
+							"Camera": "SweetSpot",
+							"BufferRatio": 1.0,
+							"GPUIndex": 0,
+							"AllowCrossGPUTransfer": false,
+							"IsShared": false,
+							"Region": { "X": 0,    "Y": 0, "W": 903, "H": 2236 },
+							"ProjectionPolicy": { "Type": "simple", "Parameters": { "screen": "Sub0" } }
+						},
+						"vp_sub1": {
+							"Camera": "SweetSpot",
+							"BufferRatio": 1.0,
+							"GPUIndex": 0,
+							"AllowCrossGPUTransfer": false,
+							"IsShared": false,
+							"Region": { "X": 903,  "Y": 0, "W": 903, "H": 2236 },
+							"ProjectionPolicy": { "Type": "simple", "Parameters": { "screen": "Sub1" } }
+						},
+						"vp_sub2": {
+							"Camera": "SweetSpot",
+							"BufferRatio": 1.0,
+							"GPUIndex": 0,
+							"AllowCrossGPUTransfer": false,
+							"IsShared": false,
+							"Region": { "X": 1806, "Y": 0, "W": 903, "H": 2236 },
+							"ProjectionPolicy": { "Type": "simple", "Parameters": { "screen": "Sub2" } }
+						},
+						"vp_sub3": {
+							"Camera": "SweetSpot",
+							"BufferRatio": 1.0,
+							"GPUIndex": 0,
+							"AllowCrossGPUTransfer": false,
+							"IsShared": false,
+							"Region": { "X": 2709, "Y": 0, "W": 903, "H": 2236 },
+							"ProjectionPolicy": { "Type": "simple", "Parameters": { "screen": "Sub3" } }
+						}
+					},
+					"OutputRemap": {
+						"bEnable": false,
+						"DataSource": "",
+						"StaticMeshAsset": "",
+						"ExternalFile": ""
+					}
+				}
+			}
+		},
+		"CustomParameters": {},
+		"Diagnostics": {
+			"SimulateLag": false,
+			"MinLagTime": 0.01,
+			"MaxLagTime": 0.3
+		}
+	}
+}
