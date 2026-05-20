@@ -2,7 +2,7 @@
 	"nDisplay": {
 		"Description": "PolyArcStereo curved LED — 4 sub-screen folded arc (L=6720mm, R=12052.62mm, θ=31.948°), 3612×2236 px, IPD=63mm, d_mid=2965mm. Sweet spot at root origin, looking +X. Stereo / M4 / M5 added in follow-up commits.",
 		"Version": "5.00",
-		"AssetPath": "",
+		"AssetPath": "/Game/nDisplay/BP_PolyArcStereo.BP_PolyArcStereo",
 		"Misc": {
 			"bFollowLocalPlayerCamera": false,
 			"bExitOnEsc": true,
